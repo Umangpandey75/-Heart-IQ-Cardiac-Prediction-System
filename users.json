@@ -1,0 +1,38 @@
+{
+  "admin": {
+    "password": "1234512345",
+    "email": "admin@example.com",
+    "role": "admin",
+    "joined": "2024-01-01"
+  },
+  "Pratyush": {
+    "password": "Pratyush",
+    "email": "pratyush.co.in11@gmail.com",
+    "role": "admin",
+    "joined": "2026-04-27"
+  },
+  "Umang": {
+    "password": "1234512345",
+    "email": "umangpandey.co@gmail.com",
+    "role": "user",
+    "joined": "2026-04-27"
+  },
+  "harsh": {
+    "password": "1231234",
+    "email": "k.tripathiharsh2005@gmail.com",
+    "role": "user",
+    "joined": "2026-04-27"
+  },
+  "sanskriti ": {
+    "password": "sansu@2005",
+    "email": "sanskriti.bh6@gamil.com",
+    "role": "user",
+    "joined": "2026-04-27"
+  },
+  "sansu": {
+    "password": "654321",
+    "email": "sanskriti.bh6@gmail.com",
+    "role": "user",
+    "joined": "2026-04-27"
+  }
+}
