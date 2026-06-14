@@ -1,0 +1,9 @@
+streamlit
+numpy
+joblib
+plotly
+pandas
+streamlit-geolocation
+requests
+scikit-learn
+google-generativeai
