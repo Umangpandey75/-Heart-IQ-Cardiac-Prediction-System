@@ -249,7 +249,7 @@ def send_otp_email(to_email: str, otp: str) -> bool:
         
         # Connect to the Gmail server securely and send the email
         ctx = ssl.create_default_context()
-        with smtplib.SMTP_SSL(SMTP_CONFIG["smtp_host"], SMTP_CONFIG["smtp_port"], context=ctx) as s:
+        with smtplib.SMTP_SSL(SMTP_CONFIG["smtp_host"], SMTP_CONFIG["smtp_port"], context=ctx, timeout=5) as s:
             s.login(sender, app_pw)
             s.sendmail(sender, to_email, msg.as_string())
         return True
