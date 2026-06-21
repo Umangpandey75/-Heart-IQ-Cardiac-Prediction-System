@@ -57,6 +57,7 @@ export default function Login({ onLoginSuccess }) {
   const [otpInfo, setOtpInfo] = useState(null); 
   const [otpError, setOtpError] = useState('');
   const [otpTimer, setOtpTimer] = useState(300); // Countdown timer: 300 seconds = 5 minutes
+  const [isLoading, setIsLoading] = useState(false); // Used to show a loading state on buttons
 
   /**
    * --------------------------------------------------------------------------
@@ -90,6 +91,7 @@ export default function Login({ onLoginSuccess }) {
   const handleLogin = async (e) => {
     e.preventDefault(); // Stops the page from refreshing
     setLoginError('');
+    setIsLoading(true);
     try {
       // Send data to the Python Backend
       const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/auth/login`, {
@@ -108,6 +110,8 @@ export default function Login({ onLoginSuccess }) {
       }
     } catch (err) {
       setLoginError('Could not connect to backend server. Make sure FastAPI is running on port 8000.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -120,6 +124,7 @@ export default function Login({ onLoginSuccess }) {
     e.preventDefault();
     setRegError('');
     setRegSuccess('');
+    setIsLoading(true);
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/auth/register`, {
         method: 'POST',
@@ -141,6 +146,8 @@ export default function Login({ onLoginSuccess }) {
       }
     } catch (err) {
       setRegError('Could not connect to backend server.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -151,6 +158,7 @@ export default function Login({ onLoginSuccess }) {
   const handleSendOtp = async (e) => {
     e.preventDefault();
     setOtpError('');
+    setIsLoading(true);
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/auth/forgot-password/otp`, {
         method: 'POST',
@@ -167,6 +175,8 @@ export default function Login({ onLoginSuccess }) {
       }
     } catch (err) {
       setOtpError('Could not connect to backend server.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -177,6 +187,7 @@ export default function Login({ onLoginSuccess }) {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     setOtpError('');
+    setIsLoading(true);
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/auth/forgot-password/reset`, {
         method: 'POST',
@@ -198,6 +209,8 @@ export default function Login({ onLoginSuccess }) {
       }
     } catch (err) {
       setOtpError('Could not connect to backend server.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -395,7 +408,7 @@ export default function Login({ onLoginSuccess }) {
               </button>
             </div>
 
-            <button type="submit" className="btn">Sign In →</button>
+            <button type="submit" className="btn" disabled={isLoading}>{isLoading ? 'Signing In...' : 'Sign In →'}</button>
           </form>
         )}
 
@@ -441,7 +454,7 @@ export default function Login({ onLoginSuccess }) {
                 </button>
               </div>
             </div>
-            <button type="submit" className="btn">Create Account →</button>
+            <button type="submit" className="btn" disabled={isLoading}>{isLoading ? 'Creating Account...' : 'Create Account →'}</button>
           </form>
         )}
 
@@ -469,7 +482,7 @@ export default function Login({ onLoginSuccess }) {
                 <input type="text" className="input-control" value={fpUsername} onChange={(e) => setFpUsername(e.target.value)} required />
               </div>
             </div>
-            <button type="submit" className="btn" style={{ marginBottom: '1rem' }}>Send OTP →</button>
+            <button type="submit" className="btn" style={{ marginBottom: '1rem' }} disabled={isLoading}>{isLoading ? 'Sending OTP...' : 'Send OTP →'}</button>
             <button type="button" className="btn btn-secondary" onClick={() => { setFpStep('login'); setOtpError(''); }}>
               ← Back to Sign In
             </button>
@@ -539,7 +552,7 @@ export default function Login({ onLoginSuccess }) {
               </div>
             </div>
 
-            <button type="submit" className="btn" style={{ marginBottom: '1rem' }} disabled={otpTimer === 0}>Reset Password →</button>
+            <button type="submit" className="btn" style={{ marginBottom: '1rem' }} disabled={otpTimer === 0 || isLoading}>{isLoading ? 'Resetting...' : 'Reset Password →'}</button>
             <button type="button" className="btn btn-secondary" onClick={() => { setFpStep('otp'); setOtpError(''); setOtpInfo(null); }}>
               Request New OTP
             </button>
