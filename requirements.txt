@@ -1,11 +1,8 @@
-streamlit
+fastapi
+uvicorn
 numpy
 joblib
-plotly
 pandas
-streamlit-geolocation
-requests
 scikit-learn
 groq
-pymongo
 python-dotenv
