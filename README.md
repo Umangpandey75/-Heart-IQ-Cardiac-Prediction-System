@@ -9,7 +9,7 @@
 <br/>
 
 <!-- ═══════════ PRIMARY BADGES ═══════════ -->
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-heartiqsystem.streamlit.app-f953c6?style=for-the-badge)](https://heartiqsystem.streamlit.app/)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-heartiqai.vercel.app-f953c6?style=for-the-badge)](https://heartiqai.vercel.app/)
 
 <br/>
 
@@ -460,7 +460,7 @@ Deploying HeartIQ is simple using modern cloud platforms:
 1. **Backend (Render / Railway)**: Deploy the root folder as a Python web service running the command `uvicorn backend.api:app --host 0.0.0.0 --port $PORT`. Make sure to add your `.env` variables to the dashboard.
 2. **Frontend (Vercel / Netlify)**: Deploy the `frontend` folder as a standard Vite application using the build command `npm run build`. Add `VITE_API_URL` to your Vercel environment variables pointing to your new Render backend URL!
 
-🌐 **Live App Demo:** [https://heartiqsystem.streamlit.app/](https://heartiqsystem.streamlit.app/)
+🌐 **Live App Demo:** [https://heartiqai.vercel.app/](https://heartiqai.vercel.app/)
 
 ---
 
@@ -589,7 +589,7 @@ If HeartIQ helped you or impressed you, please give it a star — it motivates f
 &nbsp;
 [![Fork this repo](https://img.shields.io/badge/🍴_Fork_it-f953c6?style=for-the-badge)](https://github.com/Umangpandey75/HeartIQ-4th-year-project/fork)
 &nbsp;
-[![Try Live Demo](https://img.shields.io/badge/🌐_Try_Live_Demo-b91d73?style=for-the-badge)](https://heartiqsystem.streamlit.app/)
+[![Try Live Demo](https://img.shields.io/badge/🌐_Try_Live_Demo-b91d73?style=for-the-badge)](https://heartiqai.vercel.app/)
 
 </div>
 
