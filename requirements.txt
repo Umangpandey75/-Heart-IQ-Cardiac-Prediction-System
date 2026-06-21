@@ -6,4 +6,6 @@ pandas
 streamlit-geolocation
 requests
 scikit-learn
-google-generativeai
+groq
+pymongo
+python-dotenv
