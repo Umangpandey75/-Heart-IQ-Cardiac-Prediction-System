@@ -6,3 +6,4 @@ pandas
 scikit-learn
 groq
 python-dotenv
+pymongo
