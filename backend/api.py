@@ -60,7 +60,7 @@ app = FastAPI(title="HeartIQ API", version="1.0.0")
 # the browser would block the connection for security reasons.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, this should be the exact URL of the deployed frontend
+    allow_origins=["http://localhost:5173", "https://heartiqai.vercel.app"],  # Production URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
